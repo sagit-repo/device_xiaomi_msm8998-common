@@ -1,11 +1,2 @@
 typeattribute hal_camera_default vendor_executes_system_violators;
 allow hal_camera_default system_file:file r_file_perms;
-allow hal_camera_default default_prop:file { open read getattr };
-allow hal_camera_default vendor_system_prop:file { open read };
-allow hal_camera_default hal_camera_default:capability sys_nice;
-allow hal_camera_default self:capability sys_nice;
-allow hal_camera_default shell_data_file:dir { search };
-typeattribute hal_camera_default data_between_core_and_vendor_violators;
-allow hal_camera_default camera_data_file:dir { search };
-allow hal_camera_default camera_data_file:file { r_file_perms };
-get_prop(hal_camera_default, vendor_system_prop)

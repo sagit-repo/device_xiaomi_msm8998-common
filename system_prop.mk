@@ -16,4 +16,4 @@
 
 # Camera
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    vendor.camera.aux.packagelist=com.google.android.GoogleCamera,com.google.android.GoogleCameraTele,com.android.camera 
+    vendor.camera.aux.packagelist=com.android.camera,org.lineageos.snap
