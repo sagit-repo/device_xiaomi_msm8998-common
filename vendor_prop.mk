@@ -14,16 +14,29 @@
 # limitations under the License.
 #
 
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.image-dex2oat-filter=speed \
+    ro.sys.fw.dex2oat_thread_count=8 \
+    dalvik.vm.boot-dex2oat-threads=8 \
+    dalvik.vm.dex2oat-threads=8
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     aaudio.hw_burst_min_usec=2000 \
     aaudio.mmap_exclusive_policy=2 \
     aaudio.mmap_policy=2 \
     af.fast_track_multiplier=2 \
+    audio.adm.buffering.ms=6 \
     audio.deep_buffer.media=true \
     audio.offload.min.duration.secs=15 \
     audio.offload.video=true \
+    persist.audio.dirac.speaker=true \
+    persist.audio.speaker.dualmode=true \
     persist.vendor.audio.fluence.speaker=true \
+    persist.audio.dirac.speaker=true \
+    persist.audio.speaker.dualmode=true \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
     persist.vendor.audio.ras.enabled=false \
@@ -33,6 +46,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=11 \
     ro.vendor.audio.sdk.fluencetype=fluence \
     ro.vendor.audio.sdk.ssr=false \
+    ro.af.client_heap_size_kbyte=7168 \
     vendor.audio.adm.buffering.ms=6 \
     vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false \
@@ -80,14 +94,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.snd_mon.enable=false \
     vendor.audio.flac.sw.decoder.24bit=true \
     vendor.audio.hw.aac.encoder=false \
+    vendor.audio.noisy.broadcast.delay=600 \
     vendor.audio.offload.buffer.size.kb=32 \
     vendor.audio.offload.gapless.enabled=true \
     vendor.audio.offload.multiaac.enable=true \
     vendor.audio.offload.multiple.enabled=true \
     vendor.audio.offload.passthrough=false \
+    vendor.audio.offload.pstimeout.secs=3 \
     vendor.audio.offload.track.enable=false \
     vendor.audio.parser.ip.buffer.size=0 \
-    vendor.audio.safx.pbe.enabled=false \
+    vendor.audio.safx.pbe.enabled=true \
     vendor.audio.spkr_prot.tx.sampling_rate=48000 \
     vendor.audio.tunnel.encode=false \
     vendor.audio.use.sw.alac.decoder=true \
@@ -101,12 +117,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.stats.test=5 \
+    persist.camera.eis.enable=1 \
     persist.camera.xm.green.b=0.96 \
     persist.camera.xm.green.r=0.97 \
+    persist.ts.rtmakeup=false \
     persist.vendor.camera.HAL3.enabled=1 \
     persist.vendor.camera.set.afd=4 \
     persist.vendor.dualcam.lpm.enable=1 \
+    vendor.camera.aux.packagelist=com.google.android.GoogleCamera,com.google.android.GoogleCameraTele,com.android.camera \
+    camera.hal1.packagelist=com.whatsapp \
     vidc.enc.dcvs.extra-buff-count=2
+
+# Youtube 4k
+PRODUCT_PROPERTY_OVERRIDES += \
+   sys.display-size=3840x2160
+
+#Set cutoff voltage to 3200mV
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.cutoff_voltage_mv=3400
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -141,6 +169,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.vt_avail_ovr=1 \
     persist.vendor.qti.telephony.vt_cam_interface=1
 
+# Memory
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=256m \
+    dalvik.vm.heapmaxfree=8m \
+    dalvik.vm.heapminfree=4m \
+    dalvik.vm.heapsize=512m \
+    dalvik.vm.heapstartsize=16m \
+    dalvik.vm.heaptargetutilization=0.75
+	
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \
