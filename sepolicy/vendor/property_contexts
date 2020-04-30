@@ -16,6 +16,9 @@ video.disable.ubwc                                            u:object_r:camera_
 
 vendor.camera.aux.packageblacklist                            u:object_r:vendor_camera_prop:s0
 
+# Dolby
+persist.vendor.dolby.loglevel                 u:object_r:vendor_dolby_loglevel_prop:s0
+
 # cnss-daemon
 persist.vendor.wigig.npt.enable                               u:object_r:cnss_prop:s0
 
