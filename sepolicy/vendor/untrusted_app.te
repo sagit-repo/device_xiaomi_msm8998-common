@@ -10,4 +10,8 @@ allow untrusted_app dalvikcache_data_file:file { execmod };
 allow untrusted_app vendor_default_prop:file { r_file_perms };
 allow untrusted_app proc:file r_file_perms;
 allow untrusted_app adsprpcd_file:dir { read search };
-
+allow untrusted_app adsprpcd_file:file { read };
+allow untrusted_app hal_memtrack_hwservice:hwservice_manager { find };
+allow untrusted_app sdcardfs:lnk_file { getattr };
+allow untrusted_app proc_asound:dir { search };
+allow untrusted_app sysfs_sectouch:dir { search };

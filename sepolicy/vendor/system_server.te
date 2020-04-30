@@ -11,3 +11,7 @@ allow system_server persist_camera_prop:file { read };
 # theme property
 get_prop(system_server, theme_prop)
 set_prop(system_server, theme_prop)
+
+# Allow system_server to set persist_camera_prop
+get_prop(system_server, vendor_camera_prop)
+get_prop(system_server, persist_camera_prop)
